@@ -8,7 +8,24 @@ namespace Msi.Tree
         private IMsiNode noNode;
         private float _score;
 
-        public QuestionNode(string message) { Message = message; }
+
+        public QuestionNode(string message)
+        {
+            Message = message;
+        }
+
+        public QuestionNode(string message,IMsiNode yes, IMsiNode no)
+        {
+            Message = message;
+            YesNode = yes;
+            NoNode = no;
+        }
+
+        public void AddYesNo(IMsiNode yes, IMsiNode no)
+        {
+            NoNode = no;
+            YesNode = yes;
+        }
 
         public IMsiNode NoNode
         {
@@ -49,8 +66,8 @@ namespace Msi.Tree
                 throw new ArgumentOutOfRangeException();
             _score = score;
             if(score <= 0.5)
-                return new[] {noNode, yesNode};
-            return new[] { yesNode,noNode };
+                return new[] { yesNode,noNode };
+            return new[] { noNode,yesNode };
         }
 
         #endregion
