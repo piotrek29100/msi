@@ -47,6 +47,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreeNode.cs" />
+    <Compile Include="Tree\IMsiNode.cs" />
+    <Compile Include="Tree\MsiState.cs" />
+    <Compile Include="Tree\MsiTreeManager.cs" />
+    <Compile Include="Tree\QuestionNode.cs" />
+    <Compile Include="Tree\ResultNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

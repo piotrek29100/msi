@@ -20,5 +20,10 @@ namespace MSI
             Question = question;
             Answer = answer;
         }
+
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj);
+        }
     }
 }
