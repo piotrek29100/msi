@@ -27,7 +27,7 @@ namespace MSI
             }
 
             Console.WriteLine("Wyniki:");
-            foreach (var t in results.OrderBy(r => r.Item2).Where(t => t.Item2 >= 0.2))
+            foreach (var t in results.OrderByDescending(r => r.Item2).Where(t => t.Item2 >= 0.2))
             {
                 Console.WriteLine($"{t.Item1} {Math.Round(t.Item2 * 100, 2)}%");
             }
