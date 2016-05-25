@@ -6,6 +6,7 @@ namespace Msi.Tree
 
         #region Implementation of IMsiNode
 
+        public Branch CurrentBranch { get; set; }
         public MsiState State => MsiState.Answered;
         public IMsiNode Parent { get; set; }
         public string Message { get; }
@@ -17,10 +18,19 @@ namespace Msi.Tree
                 float score = 0;
                 int steps = 0;
                 IMsiNode p = Parent;
+                Branch branch = CurrentBranch;
                 while(p!=null)
                 {
-                    score += p.Score;
+                    if(branch == Branch.Yes)
+                    {
+                        score += p.Score;
+                    }
+                    else
+                    {
+                        score += 1 - p.Score;
+                    }
                     steps++;
+                    branch = p.CurrentBranch;
                     p = p.Parent;
                 }
                 return steps == 0 ? 0 : score / steps;

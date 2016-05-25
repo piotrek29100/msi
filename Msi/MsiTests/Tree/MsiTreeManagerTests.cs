@@ -17,6 +17,22 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0, tree.CurrentScore,0.001);
+        }
+        [TestMethod()]
+        public void Msi_Hipochondria1()
+        {
+            var expectations = new[] { "ból głowy", "blad", "myśli", "nocy", "skór", "hipochon" };
+            var answers = new float[] { 0, 0, 0, 0, 1 };
+            var tree = new MsiTreeManager();
+            for (int i = 0; i < answers.Length; ++i)
+            {
+                Assert.IsTrue(tree.CurrentMessage.Contains(expectations[i]), $"Expected: \"{expectations[i]}\", got: \"{tree.CurrentMessage}\"");
+                tree.AnswerQuestion(answers[i]);
+            }
+            tree.DiscardAnswer();
+            Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(0.8, tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Raynaud()
@@ -30,6 +46,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Zez()
@@ -43,6 +60,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Katarakta()
@@ -56,6 +74,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_NerwicaDepresyjna()
@@ -69,6 +88,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Depresja()
@@ -82,6 +102,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Afektywna()
@@ -95,6 +116,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Watroba()
@@ -108,6 +130,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Bulimia()
@@ -121,6 +144,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Srodk()
@@ -134,6 +158,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Otrzewna()
@@ -147,6 +172,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Zawal()
@@ -160,6 +186,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Bialaczka()
@@ -173,6 +200,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Szpik()
@@ -186,6 +214,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Anemia()
@@ -199,6 +228,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Limfoblastyczna()
@@ -212,6 +242,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Tezec()
@@ -225,6 +256,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Epistaxis()
@@ -238,6 +270,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Sienny()
@@ -251,6 +284,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Migrena()
@@ -264,6 +298,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Kleszcz()
@@ -277,6 +312,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Opony()
@@ -290,6 +326,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Sars()
@@ -303,6 +340,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Angina()
@@ -316,6 +354,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Nadciśnienie()
@@ -329,6 +368,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Grypa()
@@ -342,6 +382,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Uremia()
@@ -355,6 +396,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Nerki()
@@ -368,6 +410,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Zatoki()
@@ -381,6 +424,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Aids()
@@ -394,6 +438,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Astma()
@@ -407,6 +452,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
         [TestMethod()]
         public void Msi_Przeziębienie()
@@ -420,6 +466,7 @@ namespace Msi.Tree.Tests
                 tree.AnswerQuestion(answers[i]);
             }
             Assert.IsTrue(tree.CurrentMessage.Contains(expectations[5]), $"Expected: \"{expectations[5]}\", got: \"{tree.CurrentMessage}\"");
+            Assert.AreEqual(1.0,tree.CurrentScore,0.001);
         }
     }
 }
