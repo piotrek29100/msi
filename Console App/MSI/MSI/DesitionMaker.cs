@@ -71,25 +71,30 @@ namespace MSI
             else
             {
                 yield return treeNode.Question;
+                
+                var nodePair = _dict.SingleOrDefault(p => p.Key.Question == treeNode.Question && p.Key.Answer == treeNode.Answer);
                 //czy wystarczająco blisko zera
-                if (_dict[treeNode] <= _tolerance && treeNode.Left != null)
+                // todo: _dict[treeNode] zamiast nodePair.Value
+                if (nodePair.Value <= _tolerance && treeNode.Left != null)
                     foreach (string question in GetQuestions(treeNode.Left))
                     {
                         yield return question;
                     }
 
                 //czy blisko jedynki
-                if (1 - _dict[treeNode] <= _tolerance && treeNode.Right != null)
+                // todo: _dict[treeNode] zamiast nodePair.Value
+                if (1 - nodePair.Value <= _tolerance && treeNode.Right != null)
                     foreach (string question in GetQuestions(treeNode.Right))
                     {
                         yield return question;
                     }
+
             }
         }
 
         public IEnumerable<string> GetResults()
         {
-            return MultiplyResults(_treeRoot).Where(pair => pair.Item2 > _cutoff).OrderByDescending(pair=>pair.Item2).Select(pair => $"{pair.Item1} {Math.Round(pair.Item2 * 100,2)}%");
+            return MultiplyResults(_treeRoot).Where(pair => pair.Item2 > _cutoff).OrderByDescending(pair => pair.Item2).Select(pair => $"{pair.Item1} {Math.Round(pair.Item2 * 100, 2)}%");
         }
 
         private IEnumerable<Tuple<string, double>> MultiplyResults(TreeNode node)
